@@ -13,6 +13,7 @@ namespace HMS
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            BundleConfig
         }
     }
 }
