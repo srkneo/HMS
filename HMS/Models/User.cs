@@ -16,7 +16,7 @@ namespace HMS.Models
 
             
             [Required(ErrorMessage = "Password is Required")]
-            [StringLength(100,ErrorMessage = "Password must be atleast {0} character long",MinimumLength = 6)]
+            [StringLength(100,ErrorMessage = "Password must be atleast {2} character long",MinimumLength = 6)]
             [DataType(DataType.Password)]
             public string Password { get; set; }
 
