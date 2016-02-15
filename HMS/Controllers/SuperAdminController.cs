@@ -8,8 +8,6 @@ namespace HMS.Controllers
 {
     public class SuperAdminController : Controller
     {
-        //
-        // GET: /SuperAdmin/
         public ActionResult Index()
         {
             return View();
