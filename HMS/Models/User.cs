@@ -1,29 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.Web.Mvc;
 using System.ComponentModel.DataAnnotations;
 
 namespace HMS.Models
 {
-    [MetadataType(typeof(RegisterModel))]
-    public class RegisterModel
+    public partial class USER
     {
-        
-            [Required(ErrorMessage = "Employee Id is Required")]
-            [Display(Name = "User Name")]
-            public string UserName { get; set; }
+        [Required]
+        public string ID { get; set; }
 
-            
-            [Required(ErrorMessage = "Password is Required")]
-            [StringLength(100,ErrorMessage = "Password must be atleast {2} character long",MinimumLength = 6)]
-            [DataType(DataType.Password)]
-            public string Password { get; set; }
+        [Required]
+        [Display(Name = "User name")]
+        public string EMP_ID { get; set; }
 
-            [DataType(DataType.Password)]
-            [Display(Name = "Confirm Password")]
-            [Compare("Password",ErrorMessage = "The Password and Confirm password do not match")]
-            public string ComfirmPassword { get; set; }
-        
+        [Required]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [DataType(DataType.Password)]
+        [Display(Name = "Password")]
+        public string PASSWORD { get; set; }
+
+        public string USER_TYPE { get; set; }
+
+        public string SALT { get; set; }
     }
 }

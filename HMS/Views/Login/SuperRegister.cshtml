@@ -1,7 +1,7 @@
-﻿@model HMS.Models.RegisterModel
+﻿@model HMS.ViewModels.LoginViewModel
 
 @{
-    Layout = null;
+    Layout = "/Views/Shared/_LayoutAdmin.cshtml";
 }
 
 <!DOCTYPE html>
@@ -9,33 +9,36 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>SuperRegister</title>
-    <link href="~/Content/bootstrap.css" rel="stylesheet" />
-    <link href="~/Content/signin.css" rel="stylesheet" />
-    <script src="~/Scripts/jquery-1.10.2.js"></script>
-    <script src="~/Scripts/bootstrap.js"></script>
+    <title>Super Register</title>    
 </head>
 <body>
     <div class="container">
         @using (Html.BeginForm( "SuperRegister","Login",FormMethod.Post,new { @class = "form-signin" }))
         {
             @Html.AntiForgeryToken()
-            @Html.ValidationSummary()
+            
 
             <h2 class="form-signin-heading">Please Register</h2>
             <div>
-                @Html.LabelFor(m => m.UserName)
-                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                @Html.LabelFor(m => m.EMP_ID)
+                @Html.TextBoxFor(m => m.EMP_ID, new { @class = "form-control" })
             </div>
             <div>
-                @Html.LabelFor(m => m.Password)
-                @Html.TextBoxFor(m => m.Password, new { @class = "form-control" })
+                @Html.LabelFor(m => m.PASSWORD)
+                @Html.PasswordFor(m => m.PASSWORD, new { @class = "form-control" })
             </div>
             <div>
-                @Html.LabelFor(m => m.ComfirmPassword)
-                @Html.TextBoxFor(m => m.ComfirmPassword, new { @class = "form-control"})
+                @Html.LabelFor(m => m.ConfirmPassword)
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control"})
             </div>
             <input type="submit" value="Register" class="btn btn-lg btn-primary btn-block" />
+            
+            <div class="alert-success">
+                @ViewBag.result
+            </div>
+            <div class="alert-danger">
+                @Html.ValidationSummary()
+            </div>
         }
     </div>
 </body>
