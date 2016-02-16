@@ -192,7 +192,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EFHMCDB.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\User.cs">
+    <Compile Include="Models\USER.cs">
       <DependentUpon>EFHMCDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

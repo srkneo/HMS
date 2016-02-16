@@ -85,7 +85,6 @@ namespace HMS.Infrastructure
             string passwordSalt = String.Concat(password, salt);
             string hashedPwd = FormsAuthentication.HashPasswordForStoringInConfigFile(passwordSalt, "sha1");
             return hashedPwd;
-
         }
     }
 }
