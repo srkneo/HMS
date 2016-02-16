@@ -25,6 +25,6 @@ namespace HMS.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Table> Tables { get; set; }
+        public virtual DbSet<USER> USERs { get; set; }
     }
 }
