@@ -2,36 +2,28 @@
 
 @{
     Layout = "/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Admin Login";
 }
+<div class="container">
+    @using (Html.BeginForm("SuperAdmin", "Login", FormMethod.Post, new { @class = "form-signin" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary()
 
-<!DOCTYPE html>
+        <h2 class="form-signin-heading">Please Login</h2>
+        <div>
+            @Html.LabelFor(m => m.EMP_ID)
+            @Html.TextBoxFor(m => m.EMP_ID, new { @class = "form-control" })
+        </div>
+        <div>
+            @Html.LabelFor(m => m.PASSWORD)
+            @Html.PasswordFor(m => m.PASSWORD, new { @class = "form-control" })
+        </div>
+        <input type="submit" value="Login" class="btn btn-lg btn-primary btn-block" />
+    }
+</div>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Super Admin</title>
-</head>
-<body>
-    <div class="container">
-        @using (Html.BeginForm("SuperAdmin", "Login", FormMethod.Post, new { @class = "form-signin" }))
-        {
-            @Html.AntiForgeryToken()
-            @Html.ValidationSummary()
-
-            <h2 class="form-signin-heading">Please Login</h2>
-            <div>
-                @Html.LabelFor(m => m.EMP_ID)
-                @Html.TextBoxFor(m => m.EMP_ID, new { @class = "form-control" })
-            </div>
-            <div>
-                @Html.LabelFor(m => m.PASSWORD)
-                @Html.PasswordFor(m => m.PASSWORD, new { @class = "form-control" })
-            </div>            
-            <input type="submit" value="Login" class="btn btn-lg btn-primary btn-block" />
-        }
-    </div>
-</body>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
-</html>
+

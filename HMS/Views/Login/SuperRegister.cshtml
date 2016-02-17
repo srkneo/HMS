@@ -2,47 +2,23 @@
 
 @{
     Layout = "/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Super Register";
+    AjaxOptions ajaxOpts = new AjaxOptions
+    {
+        UpdateTargetId = "divPartial"
+    };
 }
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Super Register</title>    
-</head>
-<body>
     <div class="container">
-        @using (Html.BeginForm( "SuperRegister","Login",FormMethod.Post,new { @class = "form-signin" }))
+        @using (Ajax.BeginForm("SuperRegister", "Login", FormMethod.Post, ajaxOpts , new { @class = "form-signin"  }))
         {
             @Html.AntiForgeryToken()
             
-
-            <h2 class="form-signin-heading">Please Register</h2>
-            <div>
-                @Html.LabelFor(m => m.EMP_ID)
-                @Html.TextBoxFor(m => m.EMP_ID, new { @class = "form-control" })
-            </div>
-            <div>
-                @Html.LabelFor(m => m.PASSWORD)
-                @Html.PasswordFor(m => m.PASSWORD, new { @class = "form-control" })
-            </div>
-            <div>
-                @Html.LabelFor(m => m.ConfirmPassword)
-                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control"})
-            </div>
-            <input type="submit" value="Register" class="btn btn-lg btn-primary btn-block" />
-            
-            <div class="alert-success">
-                @ViewBag.result
-            </div>
-            <div class="alert-danger">
-                @Html.ValidationSummary()
+            <div id="divPartial">
+                @Html.Partial("_SuperRegister")
             </div>
         }
     </div>
-</body>
+
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
-</html>

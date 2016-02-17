@@ -204,6 +204,7 @@
     <Content Include="Views\Login\SuperAdmin.cshtml" />
     <Content Include="Views\Login\SuperRegister.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Shared\_SuperRegister.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
