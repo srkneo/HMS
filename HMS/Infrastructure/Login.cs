@@ -12,24 +12,24 @@ namespace HMS.Infrastructure
 {
     public class Login
     {
-        public bool getEmpId(LoginViewModel user)
+        public string getEmpId(string user)
         {
             try
             {
-                string emp_id = user.EMP_ID;
+                string emp_id = user;
 
                 using (var context = new HMSDBEntities())
                 {
-                    var empid = from u in context.USERs
+                        var empid = from u in context.USERs
                                 where u.EMP_ID == emp_id
                                 select u;
 
                     if (empid.ToList().Count == 1)
                     {
-                        return true;
+                        return emp_id.ToString();
                     }
                 }
-                return false;
+                return "";
             }
             catch (Exception ex)
             {                
@@ -38,7 +38,7 @@ namespace HMS.Infrastructure
             
         }
 
-        public bool registerEmployee(LoginViewModel user)
+        public bool registerEmployee(RegisterViewModel user)
         {
             try
             {
@@ -50,7 +50,7 @@ namespace HMS.Infrastructure
                 USER objUser = new USER
                 {
                     ID = user.ID,
-                    EMP_ID = user.EMP_ID,
+                    EMP_ID = user.REG_EMP_ID,
                     PASSWORD = user.PASSWORD,
                     USER_TYPE = user.USER_TYPE,
                     SALT = user.SALT,

@@ -2,21 +2,20 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using HMS.Models;
 using System.Web.Mvc;
 using System.ComponentModel.DataAnnotations;
 
-
 namespace HMS.ViewModels
 {
-    public class LoginViewModel 
+    public class RegisterViewModel
     {
         [Required]
         public string ID { get; set; }
 
         [Required(ErrorMessage = "User Name can't be empty")]
-        [Display(Name = "User name")]        
-        public string EMP_ID { get; set; }
+        [Display(Name = "User name")]
+        [Remote("AlreadyRegistered", "Login")]
+        public string REG_EMP_ID { get; set; }
 
         [Required(ErrorMessage = "Password can't be empty")]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
@@ -31,7 +30,7 @@ namespace HMS.ViewModels
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
-        [ System.ComponentModel.DataAnnotations.Compare("PASSWORD", ErrorMessage = "The password and confirmation password do not match.")]
+        [System.ComponentModel.DataAnnotations.Compare("PASSWORD", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }
 }
