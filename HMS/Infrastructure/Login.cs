@@ -54,7 +54,6 @@ namespace HMS.Infrastructure
                     PASSWORD = user.PASSWORD,
                     USER_TYPE = user.USER_TYPE,
                     SALT = user.SALT,
-
                 };
 
                 using (var context = new HMSDBEntities())

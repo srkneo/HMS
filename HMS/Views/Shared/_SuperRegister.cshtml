@@ -4,14 +4,17 @@
 <div>
     @Html.LabelFor(m => m.EMP_ID)
     @Html.TextBoxFor(m => m.EMP_ID, new { @class = "form-control" })
+    <span>@Html.ValidationMessageFor(m => m.EMP_ID)</span>
 </div>
 <div>
     @Html.LabelFor(m => m.PASSWORD)
     @Html.PasswordFor(m => m.PASSWORD, new { @class = "form-control" })
+    <span>@Html.ValidationMessageFor(m => m.PASSWORD)</span>
 </div>
 <div>
     @Html.LabelFor(m => m.ConfirmPassword)
     @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+    <span>@Html.ValidationMessageFor(m => m.ConfirmPassword)</span>
 </div>
 <input type="submit" value="Register" class="btn btn-lg btn-primary btn-block" />
 <div id="divAlert">
@@ -19,6 +22,6 @@
         @ViewBag.result
     </div>
     <div class="alert-danger">
-        @Html.ValidationSummary()
+        @Html.ValidationMessage("_loginError")
     </div>
 </div>            
