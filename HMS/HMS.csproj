@@ -117,6 +117,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\signin.css" />
+    <Content Include="Content\StyleSheet.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <EntityDeploy Include="Models\EFHMCDB.edmx">
@@ -176,6 +177,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\ConfirmPasswordAttribute.cs" />
     <Compile Include="Infrastructure\Login.cs" />
     <Compile Include="Models\EFHMCDB.Context.cs">
       <AutoGen>True</AutoGen>

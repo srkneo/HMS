@@ -17,6 +17,9 @@
     <span>@Html.ValidationMessageFor(m => m.ConfirmPassword)</span>
 </div>
 <input type="submit" value="Register" class="btn btn-lg btn-primary btn-block" />
+<div id="loading" class="load" style="display:none">
+    
+</div>
 <div id="divAlert">
     <div class="alert-success">
         @ViewBag.result

@@ -1,0 +1,38 @@
+﻿.load {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    margin: -60px 0 0 -60px;
+    background: #fff;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    border: 10px solid #19bee1;
+    -webkit-box-shadow: -1px 0px 12px 0px rgba(50, 50, 50, 0.93);
+    -moz-box-shadow:    -1px 0px 12px 0px rgba(50, 50, 50, 0.93);
+    box-shadow:         -1px 0px 12px 0px rgba(50, 50, 50, 0.93);
+}
+
+    .load:after {
+        content: '';
+        background: trasparent;
+        width: 140%;
+        height: 140%;
+        position: absolute;
+        border-radius: 100%;
+        top: -20%;
+        left: -20%;
+        opacity: 0.7;
+        box-shadow: rgba(255, 255, 255, 0.6) -4px -5px 3px -3px;
+        animation: rotate 2s infinite linear;
+    }
+
+@keyframes rotate {
+    0% {
+        transform: rotateZ(0deg);
+    }
+
+    100% {
+        transform: rotateZ(360deg);
+    }
+}

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.ComponentModel.DataAnnotations;
+using HMS.Infrastructure;
 
 namespace HMS.ViewModels
 {
@@ -31,6 +32,7 @@ namespace HMS.ViewModels
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
         [System.ComponentModel.DataAnnotations.Compare("PASSWORD", ErrorMessage = "The password and confirmation password do not match.")]
+        //[Remote("ComparePassword","Login",AdditionalFields = "PASSWORD")]        
         public string ConfirmPassword { get; set; }
     }
 }

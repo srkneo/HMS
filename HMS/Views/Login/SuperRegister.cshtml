@@ -3,21 +3,49 @@
 @{
     Layout = "/Views/Shared/_LayoutAdmin.cshtml";
     ViewBag.Title = "Super Register";
-    AjaxOptions ajaxOpts = new AjaxOptions
-    {
-        UpdateTargetId = "divPartial"
-    };
+    //AjaxOptions ajaxOpts = new AjaxOptions
+    //{
+    //    UpdateTargetId = "divPartial",
+    //    LoadingElementId = "loading",
+    //    InsertionMode = InsertionMode.Replace,
+    //    HttpMethod = "Post"
+    //};
 }
-    <div class="container">
-        @using (Ajax.BeginForm("SuperRegister", "Login", FormMethod.Post, ajaxOpts , new { @class = "form-signin"  }))
-        {
-            @Html.AntiForgeryToken()
-            
-            <div id="divPartial">
-                @Html.Partial("_SuperRegister")
+<div class="container">
+    @using (Html.BeginForm("SuperRegister", "Login", FormMethod.Post, new { @class = "form-signin" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <h2 class="form-signin-heading">Please Register</h2>
+        <div>
+            @Html.LabelFor(m => m.REG_EMP_ID)
+            @Html.TextBoxFor(m => m.REG_EMP_ID, new { @class = "form-control" })
+            <span>@Html.ValidationMessageFor(m => m.REG_EMP_ID)</span>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.PASSWORD)
+            @Html.PasswordFor(m => m.PASSWORD, new { @class = "form-control" })
+            <span>@Html.ValidationMessageFor(m => m.PASSWORD)</span>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.ConfirmPassword)
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+            <span>@Html.ValidationMessageFor(m => m.ConfirmPassword)</span>
+        </div>
+        <input type="submit" value="Register" class="btn btn-lg btn-primary btn-block" />
+        <div id="loading" class="load" style="display:none">
+
+        </div>
+        <div id="divAlert">
+            <div class="alert-success">
+                @ViewBag.result
             </div>
-        }
-    </div>
+            <div class="alert-danger">
+                @Html.ValidationMessage("_loginError")
+            </div>
+        </div>
+    }
+</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
