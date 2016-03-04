@@ -18,20 +18,14 @@ namespace HMS.ViewModels
         [Display(Name = "User name")]        
         public string EMP_ID { get; set; }
 
-        [Required(ErrorMessage = "Password can't be empty")]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [Required(ErrorMessage = "Password can't be empty")]        
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string PASSWORD { get; set; }
 
-        public string USER_TYPE { get; set; }
+        public string ROLE { get; set; }
 
         public string SALT { get; set; }
 
-        [Required]
-        [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [ System.ComponentModel.DataAnnotations.Compare("PASSWORD", ErrorMessage = "The password and confirmation password do not match.")]
-        public string ConfirmPassword { get; set; }
     }
 }

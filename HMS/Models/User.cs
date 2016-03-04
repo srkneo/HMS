@@ -17,7 +17,7 @@ namespace HMS.Models
         public string ID { get; set; }
         public string EMP_ID { get; set; }
         public string PASSWORD { get; set; }
-        public string USER_TYPE { get; set; }
         public string SALT { get; set; }
+        public string ROLE { get; set; }
     }
 }

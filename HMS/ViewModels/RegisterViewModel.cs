@@ -24,7 +24,7 @@ namespace HMS.ViewModels
         [Display(Name = "Password")]
         public string PASSWORD { get; set; }
 
-        public string USER_TYPE { get; set; }
+        public string ROLE { get; set; }
 
         public string SALT { get; set; }
 

@@ -34,8 +34,7 @@ namespace HMS.Infrastructure
             catch (Exception ex)
             {                
                 throw ex;
-            }
-            
+            }            
         }
 
         public bool registerEmployee(RegisterViewModel user)
@@ -45,14 +44,14 @@ namespace HMS.Infrastructure
                 user.SALT = CreateSalt();
                 user.ID = Guid.NewGuid().ToString();
                 user.PASSWORD = CreatePasswordHash(user.PASSWORD, user.SALT);
-                user.USER_TYPE = "SA";
+                user.ROLE = "SA";
 
                 USER objUser = new USER
                 {
                     ID = user.ID,
                     EMP_ID = user.REG_EMP_ID,
                     PASSWORD = user.PASSWORD,
-                    USER_TYPE = user.USER_TYPE,
+                    ROLE = user.ROLE,
                     SALT = user.SALT,
                 };
 
