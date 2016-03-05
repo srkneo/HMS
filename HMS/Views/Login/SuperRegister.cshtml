@@ -32,7 +32,9 @@
             @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
             <span>@Html.ValidationMessageFor(m => m.ConfirmPassword)</span>
         </div>
+        
         <input type="submit" value="Register" class="btn btn-lg btn-primary btn-block" />
+        
         <div id="loading" class="load" style="display:none">
 
         </div>
