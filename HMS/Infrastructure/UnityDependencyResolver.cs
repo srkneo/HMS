@@ -24,7 +24,7 @@ namespace HMS.Infrastructure
             }
             catch (Exception)
             {
-                return null;   
+                return null;
             }
         }
 
@@ -36,7 +36,6 @@ namespace HMS.Infrastructure
             }
             catch (Exception)
             {
-
                 return new List<object>();
             }
         }
