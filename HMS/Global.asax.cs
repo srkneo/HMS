@@ -15,6 +15,7 @@ namespace HMS
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            App_Start.IocConfig.ConfigUnityContainer();
         }
     }
 }

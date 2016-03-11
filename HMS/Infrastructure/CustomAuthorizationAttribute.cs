@@ -14,7 +14,6 @@ namespace HMS.Infrastructure
 
         public override void OnAuthorization(AuthorizationContext filterContext)
         {
-
             //Send the Return url to login page
 
             LoginPage += "?ReturnUrl=" + filterContext.HttpContext.Request.RawUrl;
@@ -36,6 +35,5 @@ namespace HMS.Infrastructure
 
             base.OnAuthorization(filterContext);
         }
-
     }
 }

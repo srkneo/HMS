@@ -10,6 +10,7 @@ namespace HMS.ViewModels
 {
     public class RegisterViewModel
     {
+
         [Required]
         public string ID { get; set; }
 

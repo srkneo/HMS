@@ -7,10 +7,11 @@ using HMS.ViewModels;
 using HMS.Models;
 using System.Security.Cryptography;
 using System.Web.Security;
+using HMS.Infrastructure.Interfaces;
 
-namespace HMS.Infrastructure
+namespace HMS.Infrastructure 
 {
-    public class Login
+    public class Login  : ILoginProvider
     {
         public string getEmpId(string user)
         {
@@ -52,7 +53,7 @@ namespace HMS.Infrastructure
                     EMP_ID = user.REG_EMP_ID,
                     PASSWORD = user.PASSWORD,
                     ROLE = user.ROLE,
-                    SALT = user.SALT,
+                    SALT = user.SALT
                 };
 
                 using (var context = new HMSDBEntities())
@@ -69,7 +70,7 @@ namespace HMS.Infrastructure
             }
         }
 
-        public  string CreateSalt()
+        public string CreateSalt()
         {
             RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
             byte[] byteArr = new byte[64];
@@ -78,7 +79,7 @@ namespace HMS.Infrastructure
             return Convert.ToBase64String(byteArr);
         }
 
-        public  string CreatePasswordHash(string password, string salt)
+        public string CreatePasswordHash(string password, string salt)
         {
             string passwordSalt = String.Concat(password, salt);
             string hashedPwd = FormsAuthentication.HashPasswordForStoringInConfigFile(passwordSalt, "sha1");
